@@ -1,12 +1,6 @@
 # Password-Generator
-<<<<<<< HEAD
-Generating a secure random password using Javascript 
-
-#Application- Features
-=======
 This app generates secure password based on user preferences.
 # Application Features:
->>>>>>> 940815cf1d35cdc1ada10e2f73f7a210a7f7655d
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria
@@ -22,7 +16,3 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
-<<<<<<< HEAD
- 
-=======
->>>>>>> 940815cf1d35cdc1ada10e2f73f7a210a7f7655d
