@@ -18,26 +18,56 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function password_generator() {
-}
 var passwordLength=window.prompt("How many characters would you like your password to be?");
 if (!passwordLength){
   alert ("Not a valid input");
 }
-else if (passwordLength<8|| passwordLength >100){
-  var passwordLength= window.prompt("You must choose between 8 and 100 character");
+else if (passwordLength<8|| passwordLength >128){
+  var passwordLength= window.prompt("You must choose between 8 and 128 character");
 }
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
+var special=window.confirm("Click ok to confirm special characters");
+var number=window.confirm("Click ok to confirm numbers");
+var small=window.confirm("Click ok to confirm small letters");
+var large=window.confirm("Click ok to confirm capital letters");
+
+if (special===false && number===false && small===false && large===false){
+  alert("You must select at least 1 character type")
+}
+var passwordChoices={
+  length:passwordLength,
+  special: special,
+  number:number,
+  small:small,
+  large:large,
+}
+return passwordChoices;
+}
+function generatePassword(){
+var passwordOptions= password_generator()
+var possibleCharacters=[]
+if (passwordOptions.special===true){
+  var specialArray=specialCharacters.split ("")
+  possibleCharacters=possibleCharacters.concat(specialArray)
+}
+
+if (passwordOptions.number===true){
+  var specialArray=numbers.split ("")
+  possibleCharacters=possibleCharacters.concat(specialArray)
+}
+if (passwordOptions.small===true){
+  var specialArray=smallLetter.split ("")
+  possibleCharacters=possibleCharacters.concat(specialArray)
+}
+if (passwordOptions.large===true){
+  var specialArray=capitalLetter.split ("")
+  possibleCharacters=possibleCharacters.concat(specialArray)
+}
+var finalPassword=[]
+for (i=0;i<passwordOptions.length;i++){
+  var randomIndex=Math.floor (Math.random()*possibleCharacters.length)
+  var randomElement=possibleCharacters[randomIndex]
+  finalPassword.push(randomElement)
+  console.log(finalPassword)
+}
+return finalPassword.join("")
+}
