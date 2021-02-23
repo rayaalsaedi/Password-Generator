@@ -7,11 +7,12 @@ This website generates a password based on user preferences through a series of 
 - Javascript
 
 # Deployed links:
-https://github.com/rayaalsaedi/Password-Generator \n    
+https://github.com/rayaalsaedi/Password-Generator    
 
 
  https://rayaalsaedi.github.io/Password-Generator/
 
 
+# Screenshot:
 
-
+![Screenshot of Password Generator](Assets/screenshot.png)
